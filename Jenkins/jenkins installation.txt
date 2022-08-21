@@ -36,7 +36,14 @@ Execute in Slave Nodes:
 #Install GIT:
 
 yum install git
-  
+
+#Install epel Package:
+
+amazon-linux-extras install epel
+#Install Java: 
+amazon-linux-extras install java-openjdk11
+
+
 #Install Maven:
 
 
@@ -57,7 +64,7 @@ PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME:$M2
 
 source ~/.bash_profile
 
-open .bash_profile & add the following lines:
+#open .bash_profile & add the following lines:
 
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-11.0.13.0.8-1.amzn2.0.3.x86_64"
 export MAVEN_HOME=/opt/apache-maven-3.8.6
