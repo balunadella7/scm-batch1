@@ -123,3 +123,27 @@ pipeline {
 		}
 	}
 }
+
+
+
+**************************************************************************************
+
+#Github webhook to automatically trigger build pipeline!
+
+#Goto Githu Repository setting, 
+Select webhook, 
+
+Click Add Webhook
+
+Enter Jenkins Master URL. eg.:
+http://<public-IP>:8080/github-webhook/
+
+Choose the push event and save the webhook configuration
+
+**********************************************************************************
+#Ensure that you have Installed git on jenkins master: 
+
+sudo yum install git
+
+
+Go to Jenkins job, Under build trigger, enable "GitHub hook trigger for GITScm polling" option and save the jon
