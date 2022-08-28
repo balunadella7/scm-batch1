@@ -1,13 +1,21 @@
-Jenkins Master Slave Configuration: 
+#Jenkins Master Slave Configuration: 
 
-Launch New AWS Linux Instances
+#Launch New AWS Linux Instances
 
-Jenkins Master, Node1, Node2
+#Jenkins Master, Node1, Node2
 
-With port 8080 & Name Tag
-Update the Instance
+#Launch AWS Linux Instance with port 8080 & Name Tag
+#Update the Instance
 
-Execute only in Master:
+#Execute only in Master:
+
+#Jenkins Installation Steps:
+#Launch AWS Linux Instance with port 8080 & Name Tag
+#Update the Instance
+
+sudo -i
+
+yum update -y
 
 #Install Jenkins :
 
@@ -15,12 +23,12 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
 #Install epel Package:
-
 amazon-linux-extras install epel
+
 #Install Java: 
 amazon-linux-extras install java-openjdk11
 
-yum install jenkins
+yum install jenkins 
 
 #Start Jenkins:
 
@@ -31,18 +39,17 @@ service jenkins start
 chkconfig jenkins on
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Execute in Slave Nodes:
+#Execute in Slave Nodes:
+
+#Install epel Package:
+amazon-linux-extras install epel
+
+#Install Java: 
+amazon-linux-extras install java-openjdk11
 
 #Install GIT:
 
 yum install git
-
-#Install epel Package:
-
-amazon-linux-extras install epel
-#Install Java: 
-amazon-linux-extras install java-openjdk11
-
 
 #Install Maven:
 
@@ -74,21 +81,23 @@ PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME:$M2
 source ~/.bash_profile
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Add User : useradd -m -d /home/jenkins jenkin
 
-su jenkin
+#Add User : 
+
+useradd -m -d /home/jenkins jenkin
+
+su - jenkin
 
 ssh-keygen
 
 ls ~/.ssh 
 
-You should see following two files:
+#You should see following two files:
 
-id_rsa - private key
-id_rsa.pub - public
+#id_rsa - private key
+#id_rsa.pub - public
 
-cat id_rsa & copy the private key and paste it into jenkins node config. enter private key directly field
-Then,
+#cat id_rsa & copy the private key and paste it into jenkins node config. enter private key directly field.  Then,
 cat id_rsa.pub > authorized_keys
 
 chown -R jenkin /home/jenkins/.ssh
@@ -100,3 +109,10 @@ chmod 700 /home/jenkins/.ssh
 Login to Jenkins thru browser, Go to Manage Jenkins --> Config Nodes -- > Add New Node 
 
 Config the Node Name, Label, Access thru SSH Parm - user Name, with private key
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
+
+Goto Global Tools config. Settings and ADD Maven Installation Details.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+#Install Maven Integration Plugin 
