@@ -33,7 +33,9 @@ source ~/.bash_profile
 
 cd /opt
 wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.82/bin/apache-tomcat-8.5.82.tar.gz
+
 tar -xvzf /opt/apache-tomcat-8.5.82.tar.gz
+
 mv apache-tomcat-8.5.82 tomcat
 
 #Start Tomcat Server:
